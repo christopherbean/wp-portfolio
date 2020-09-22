@@ -1,0 +1,570 @@
+/*
+Theme Name: TwentyTwenty Child
+Theme URI:
+Description: TwentyTwenty Child Theme - Portfolio
+Author: Christopher Bean
+Author URI: http://chrisbeandev.com
+Template: twentytwenty
+Version: 2.0.0
+Tags: responsive-layout, accessibility-ready
+Text Domain: twentytwenty-child
+*/
+
+/*Default stylings*/
+
+body{
+    font-family: 'Old Standard TT', serif;
+    color: #414141;
+}
+
+.content-wrapper{
+    width: 90%;
+    margin: 50px 0;
+}
+
+h1{
+    font-size: 3.0rem;
+}
+
+/*remove default section padding*/
+section{
+    padding: 0;
+}
+
+/*alternate*/
+.alternate section:nth-child(odd){
+    background: #ee9b4a;
+    color: #f2f2f2;
+}
+
+.alternate section:nth-child(even){
+    background: #e2e2e2;
+    color: #414141;
+}
+
+/*### Header ###*/
+#site-header,
+#site-footer{
+    background-color: #565656;
+}
+
+body:not(.overlay-header) .primary-menu > li > a{
+    color: #d9d5d5;
+}
+
+.nav-toggle .toggle-inner .toggle-icon{
+    color: #d9d5d5;
+}
+
+.header-titles-wrapper .nav-toggle .toggle-inner .toggle-text{
+    color: #d9d5d5;
+}
+
+
+/*### MODAL MENU ###*/
+
+.menu-modal.active{
+    opacity: .7;
+}
+
+.header-footer-group, body:not(.overlay-header) #site-header .toggle, .menu-modal .toggle{
+    color: #f2f2f2;
+}
+
+.menu-modal-inner{
+    background: #414141;
+}
+
+.modal-menu li{
+    border: none;
+}
+
+.modal-menu > li > .ancestor-wrapper > a{
+    font-size: 2.4rem;
+}
+
+.modal-menu a{
+    color: #ee9b4a;
+    text-align: center;
+}
+
+
+/*### footer ###*/
+
+#site-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+
+.footer-credits{
+    display: block;
+    width: 100%;
+}
+
+.footer-copyright{
+    font-size: 85%;
+    color: #d9d5d5;
+    text-align: center;
+}
+
+/*### let's chat section ###*/
+
+#chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.chat-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.chat-container .widget .widget-title{
+    text-align: center;
+    font-size: 3.0rem;
+    margin-bottom: 20px;
+}
+
+.chat-container p{
+    font-family: 'EB Garamond', serif;
+}
+
+.chat-container a{
+    text-decoration: none;
+}
+
+.chat-container .contact-btn-link{
+    width: 100%;
+}
+
+.chat-container a.chat-btn{
+    display: block;
+    width: 100%;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    border: solid 1px black;
+    background: #e87a0f;
+}
+
+.chat-container a.chat-btn:hover{
+    background: #b55f0c;
+}
+/*### front-page.php ###
+  ### hero-area  ###*/
+
+.hero-area{
+    background: url(img/home-hero.png) center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-flow: row wrap;
+}
+
+.hero-area h1{
+    color: #f2f2f2;
+    text-align: center;
+    margin: 70px 0;
+    font-size: 3.6rem;
+}
+
+/*about-me*/
+
+#about-me{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.not-seen-mobile{
+    display: none;
+}
+
+.about-me-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.about-me-content figure.my-portrait{
+    display: flex;
+    justify-content: center;
+}
+
+.about-me-content img {
+    max-width: 50%;
+}
+
+.about-me-content h1{
+    text-align: center;
+    margin: 2rem 0 2rem;
+}
+
+.about-me-text p{
+    font-family: 'EB Garamond', serif;
+}
+
+/*work-preview*/
+
+#work-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#work-preview h1{
+    text-align: center;
+    margin: 0 0 2rem;
+}
+
+.featured-work{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    list-style: none;
+    margin: 0;
+}
+
+.individual-work{
+    margin: 0;
+}
+
+.individual-work figure{
+    margin: 0;
+    padding: 0;
+}
+
+.individual-work h3{
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 30px 0 30px 0;
+}
+
+.individual-work h3 a{
+    color: #414141;
+    text-decoration: none;
+}
+
+/*Projects page archive-projects*/
+
+/*hero area*/
+#work-hero{
+    background: url(img/work-hero.png) center no-repeat;
+    background-size: cover;
+}
+
+.project-info h2{
+    text-align: center;
+}
+
+/*project sections*/
+
+#project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+#project p{
+    font-family: 'EB Garamond', serif;
+}
+
+
+
+/*### CONTACT PAGE ###*/
+
+#contact-hero {
+    background: url(img/contact.jpg) center no-repeat;
+    background-size: cover;
+}
+
+#contact-hero p{
+    font-family: 'EB Garamond', serif;
+    color: #f2f2f2;
+    font-size: 2.4rem;
+    text-align: center;
+    padding: 50px 0;
+    margin: 0;
+}
+
+/*overriding wpforms default form styling*/
+
+div.wpforms-container-full .wpforms-form .wpforms-field-row.wpforms-field-medium, 
+div.wpforms-container-full .wpforms-form input[type=email] {
+    max-width: 100%;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-one-half{
+    width: 100%;
+    margin: 0 0 25px 0;
+}
+
+div.wpforms-container-full .wpforms-form input[type=text],
+div.wpforms-container-full .wpforms-form input[type=email],
+div.wpforms-container-full .wpforms-form textarea.wpforms-field-medium
+{
+    padding: 25px;
+}
+
+div.wpforms-container-full .wpforms-form textarea.wpforms-field-medium{
+    height: 200px;
+}
+
+label.wpforms-field-label{
+    color: #f2f2f2;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-field-label{
+    font-size: 1.8rem;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-field{
+    padding: 0;
+}
+
+div.wpforms-field.wpforms-field-email{
+    margin: 0 0 25px 0;
+}
+
+div.wpforms-field.wpforms-field-textarea{
+    margin: 0 0 25px 0;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-submit-container{
+    text-align: center;
+}
+
+div.wpforms-container-full .wpforms-form button[type=submit]{
+    width: 100%;
+    background-color: #e87a0f;
+    color: #f2f2f2;
+    padding: 15px 0;
+    border: solid 1px black;
+}
+
+div.wpforms-container-full .wpforms-form button[type=submit]:hover{
+    background-color: #b55f0c;
+}
+
+/*form confirmation*/
+
+.wpforms-confirmation-container-full{
+    background: rgba(0,0,0, 0.4);
+    border: none;
+}
+
+/*######### MEDIA QUERIES ########*/
+/*### Tablet ###*/
+
+
+@media (min-width: 768px){
+    
+    .content-wrapper{
+        max-width: 640px;
+        margin: 100px 0;
+    }
+    
+    h1{
+        font-size: 4rem;
+    }
+    
+    p{
+        font-size: 2.0rem;
+    }
+    
+/*### Modal Menu ###*/
+
+.modal-menu > li > .ancestor-wrapper > a{
+    font-size: 3rem;
+}
+    
+/*### Homepage/About ###*/
+
+    /* hero area */
+    
+    .hero-area{
+        min-height: 600px;
+    }
+    
+    .content-wrapper{
+        margin-top: 75px;
+    }
+    
+    .hero-area h1{
+        font-size: 4.6rem;
+    }
+    
+    
+    /* About me */
+    
+    #about-me h1{
+        text-align: center;
+        margin: 40px 0;
+    }
+    
+    /* Work */
+    
+    #work-preview h1{
+        margin-bottom: 40px;
+    }
+    
+    .featured-work {
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+    }
+    
+    .individual-work{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        width: 32%;
+    }
+    
+    .individual-work h3{
+        font-size: 2.2rem;
+        margin-bottom: 0;
+    }
+    /* chat */
+    
+    .chat-container .widget .widget-title{
+        font-size: 4rem;
+        margin-bottom: 40px;
+    }
+    
+    .chat-container p{
+        font-size: 2.2rem;
+    }
+    
+    .chat-container a.chat-btn{
+        font-size: 3.2rem;
+    }
+    
+    
+/*### CONTACT PAGE Tablet ###*/
+    
+    
+    div.wpforms-field-row.wpforms-field-medium{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+    
+    /* removes awkward default spacing! */
+    div.wpforms-container-full .wpforms-form .wpforms-field-row:before,
+    div.wpforms-container-full .wpforms-form .wpforms-field-row:after{
+        content: none;
+    }
+    
+    
+    div.wpforms-container-full .wpforms-form .wpforms-one-half{
+    width: 47%;
+    margin: 0 0 25px 0;
+    }      
+    
+}
+
+@media (min-width: 1200px){
+    
+/* Header*/
+    ul.primary-menu{
+        font-size: 2.2rem;
+    }
+    
+    /* general rules */
+    
+    .content-wrapper{
+        max-width: 960px;
+    }
+    
+    h1{
+        font-size: 5.2rem;
+    }
+    
+    p{
+        font-size: 2.4rem;
+    }
+    
+    /* Hero */
+    
+    .hero-area h1{
+        font-size: 6.0rem;
+    }
+    
+    /* About Me */
+    
+    .about-me-content{
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+    }
+    
+    figure.my-portrait{
+        width: 50%;
+    }
+    
+    .about-me-content img {
+        max-width: 100%;
+}
+    
+    .about-me-text{
+        width: 45%;
+    }
+    
+    /* chat */
+    
+    .not-seen-mobile{
+        display: block;
+    }
+    
+    .seen-mobile{
+        display: none;
+    }
+    
+    .chat-container .widget .widget-title{
+        font-size: 5.2rem;
+    }
+    
+    .chat-container p{
+        font-size: 2.4rem;
+    }
+    
+    .chat-container .contact-btn-link{
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .chat-container a.chat-btn{
+    width: 30%;
+    font-size: 2.4rem;
+}
+    
+/*### CONTACT PAGE form ###*/
+    
+    
+    #contact-hero p{
+        font-size: 2.6rem;
+    }
+    #wpforms-form-59{
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    
+}
