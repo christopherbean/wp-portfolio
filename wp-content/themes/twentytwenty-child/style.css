@@ -204,9 +204,11 @@ body:not(.overlay-header) .primary-menu > li > a{
     justify-content: center;
 }
 
+/* removed this to check on actual mobile device
 .about-me-content img {
     max-width: 50%;
 }
+*/
 
 .about-me-content h1{
     text-align: center;
