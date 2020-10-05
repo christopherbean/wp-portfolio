@@ -98,6 +98,33 @@ body:not(.overlay-header) .primary-menu > li > a{
     flex-flow: column wrap;
 }
 
+footer#site-footer.header-footer-group{
+    padding: 0;
+}
+
+ul#menu-social-links-menu.social-media-menu{
+    list-style: none;
+    margin: 0;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul#menu-social-links-menu.social-media-menu li{
+    margin: 0;
+}
+
+div.menu-social-links-menu-container ul li a i._mi{
+color: #ffffff;
+background: #ee9b4a;
+height: 28px;
+width: 28px;
+border-radius: 50%;
+text-align: center;
+padding-top: 5px;
+}
+
 
 .footer-credits{
     display: block;
@@ -204,11 +231,6 @@ body:not(.overlay-header) .primary-menu > li > a{
     justify-content: center;
 }
 
-/* removed this to check on actual mobile device
-.about-me-content img {
-    max-width: 50%;
-}
-*/
 
 .about-me-content h1{
     text-align: center;
@@ -370,6 +392,72 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
     border: none;
 }
 
+/*### Services Page ###*/
+/*archive-services*/
+
+#services-hero{
+    background: url(img/services-hero.png) center no-repeat;
+    background-size: cover;
+}
+
+#services-hero h2{
+    color: #f3f3f3;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2.4rem;
+}
+
+#service p{
+    font-family: 'EB Garamond', serif;
+    margin: 0;
+}
+
+.lets-chat-link{
+    text-align: center;
+    
+}
+
+.lets-chat-link a{
+    display: block;
+    font-size: 2rem;
+    width: 100%;
+    padding: 15px 0;
+    background: #e87a0f;
+    border: 1px solid #2b2b2b;
+    color: #f3f3f3;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.lets-chat-link a:hover{
+    background: #b55f0c;
+}
+
+#service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#service .content-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.service-icon{
+    width: 50%;
+}
+
+.service-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
 /*######### MEDIA QUERIES ########*/
 /*### Tablet ###*/
 
@@ -388,6 +476,32 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
     p{
         font-size: 2.0rem;
     }
+    
+/*### Footer ###*/
+    
+    div.menu-social-links-menu-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    ul#menu-social-links-menu.social-media-menu{
+        width: 50%;
+        margin-bottom: 100px;
+}
+    
+    div.menu-social-links-menu-container ul li a i._mi{
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        text-align: center;
+        padding-top: 5px;
+}
+    
+    #site-footer .content-wrapper{
+        margin-bottom: 0;
+    }
+
     
 /*### Modal Menu ###*/
 
@@ -479,7 +593,54 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
     div.wpforms-container-full .wpforms-form .wpforms-one-half{
     width: 47%;
     margin: 0 0 25px 0;
-    }      
+    } 
+    
+/*### Services Page ###*/
+    
+    #services-hero .content-wrapper{
+        margin-top: 100px;
+    }
+    
+    #services-hero h2{
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+    
+    .lets-chat-link{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .lets-chat-link a{
+        width: 33%;
+        font-size: 2.4rem;
+    }
+    
+    #service .content-wrapper{
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+        margin-top: 100px;
+    }
+    
+    section#service:nth-child(odd) .service-icon{
+        order: 2;
+    }
+    
+    .service-icon{
+        width: 45%;
+    }
+    
+    .service-info{
+        width: 48%;
+        align-items: flex-start;
+    }
+    
+    .service-info h2{
+        font-size: 3rem;
+        margin: 0 0 2rem 0;
+    }
     
 }
 
@@ -567,6 +728,20 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
     #wpforms-form-59{
         max-width: 80%;
         margin: 0 auto;
+    }
+    
+/*### SERVICES PAGE ###*/
+    
+    .service-icon{
+        width: 35%;
+    }
+    
+    .service-info{
+        width: 50%;
+    }
+    
+    .service-info h2{
+        font-size: 3.6rem;
     }
     
 }

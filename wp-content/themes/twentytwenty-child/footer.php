@@ -18,7 +18,9 @@
                     
 
 					<div class="footer-credits">
-
+                        <nav class="social-media-navigation" role="navigation">
+                            <?php wp_nav_menu(array('theme_location' => 'social', 'menu_class' => 'social-media-menu')); ?>
+                        </nav>
 						<p class="footer-copyright">&copy;
 							<?php
 							echo date_i18n(
