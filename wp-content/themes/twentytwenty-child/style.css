@@ -26,6 +26,14 @@ h1{
     font-size: 3.0rem;
 }
 
+h2{
+    font-size: 2.8rem;
+}
+
+p{
+    font-size: 2.2rem;
+}
+
 /*remove default section padding*/
 section{
     padding: 0;
@@ -33,8 +41,8 @@ section{
 
 /*alternate*/
 .alternate section:nth-child(odd){
-    background: #ee9b4a;
-    color: #f2f2f2;
+    background: #D68333;
+    color: #e2e2e2;
 }
 
 .alternate section:nth-child(even){
@@ -117,7 +125,7 @@ ul#menu-social-links-menu.social-media-menu li{
 
 div.menu-social-links-menu-container ul li a i._mi{
 color: #ffffff;
-background: #ee9b4a;
+background: #D68333;
 height: 28px;
 width: 28px;
 border-radius: 50%;
@@ -191,7 +199,7 @@ padding-top: 5px;
   ### hero-area  ###*/
 
 .hero-area{
-    background: url(img/home-hero.png) center no-repeat;
+    background: url(img/home-hero.jpg) center no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -231,6 +239,11 @@ padding-top: 5px;
     justify-content: center;
 }
 
+.about-me-content figure.not-seen-mobile{
+    display: none;
+}
+
+/*hides one figure on mobile*/
 
 .about-me-content h1{
     text-align: center;
@@ -287,17 +300,19 @@ padding-top: 5px;
 
 /*hero area*/
 #work-hero{
-    background: url(img/work-hero.png) center no-repeat;
+    background: url(img/work-hero.jpg) center no-repeat;
     background-size: cover;
 }
 
 .project-info h2{
     text-align: center;
+    margin: 15px 0;
 }
 
 /*project sections*/
 
-#project{
+#project,
+#single-project{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -305,10 +320,54 @@ padding-top: 5px;
 }
 
 #project p{
+    margin-bottom: 50px;
+}
+
+#project p,
+#single-project p{
     font-family: 'EB Garamond', serif;
+    line-height: 1.2;
+}
+
+#project a{
+    color: #e2e2e2;
+}
+
+.individual-project{
+    margin-bottom: 40px;
+}
+
+.individual-project:last-of-type{
+    margin-bottom: 0px;
 }
 
 
+/*#### single-projects page ####*/
+
+#work-slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+#work-slider .content-wrapper{
+    margin: 0;
+}
+
+#single-project h1,
+#single-project h2{
+    text-align: center;
+    margin-top: 0;
+}
+
+#single-project .content-wrapper > div{
+    margin-bottom: 50px;
+}
+
+#single-project .content-wrapper > div:last-of-type{
+    margin-bottom: 0;
+}
 
 /*### CONTACT PAGE ###*/
 
@@ -396,7 +455,7 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
 /*archive-services*/
 
 #services-hero{
-    background: url(img/services-hero.png) center no-repeat;
+    background: url(img/services-hero.jpg) center no-repeat;
     background-size: cover;
 }
 
@@ -473,8 +532,12 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
         font-size: 4rem;
     }
     
+    h2{
+        font-size: 3.1rem;
+    }
+    
     p{
-        font-size: 2.0rem;
+        font-size: 2.7rem;
     }
     
 /*### Footer ###*/
@@ -564,10 +627,6 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
         margin-bottom: 40px;
     }
     
-    .chat-container p{
-        font-size: 2.2rem;
-    }
-    
     .chat-container a.chat-btn{
         font-size: 3.2rem;
     }
@@ -594,6 +653,54 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
     width: 47%;
     margin: 0 0 25px 0;
     } 
+    
+    
+/*### archive-project page ###*/
+    
+    #project .content-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row wrap;
+    }
+    
+    .individual-project{
+        width: 49%;
+        margin: 0;
+    }
+    
+    .project-info h2{
+        margin-bottom: 30px;
+    }
+    
+    
+/*### single-projects page ###*/
+    
+    #single-project .content-wrapper{
+        display:flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: row wrap;
+    }
+    
+    .design-detail,
+    .development-detail{
+        width: 48%;
+    }
+    
+    #single-project .content-wrapper > div {
+    margin-bottom: 0px;
+    }
+    
+    #single-project .content-wrapper .single-desc{
+        margin-bottom: 30px;
+    }
+    
+    #single-project h2{
+        margin-bottom: 10px;
+    }
+    
+
     
 /*### Services Page ###*/
     
@@ -657,15 +764,25 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
         max-width: 960px;
     }
     
+    #about-me .content-wrapper{
+        max-width: 1200px;
+    }
+    
     h1{
         font-size: 5.2rem;
     }
     
-    p{
-        font-size: 2.4rem;
+    /* Hero */
+    
+/*parallax effect*/
+    
+    #work-hero,
+    .hero-area,
+    #contact-hero,
+    #services-hero{
+        background-attachment: fixed;
     }
     
-    /* Hero */
     
     .hero-area h1{
         font-size: 6.0rem;
@@ -688,25 +805,33 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
 }
     
     .about-me-text{
-        width: 45%;
+        width: 48%;
+    }
+    
+    #about-me h1.not-seen-mobile{
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    
+    .about-me-text p{
+        margin-bottom: 0;
     }
     
     /* chat */
     
-    .not-seen-mobile{
+    .not-seen-mobile,
+    .about-me-content figure.not-seen-mobile
+    {
         display: block;
     }
     
-    .seen-mobile{
+    .seen-mobile,
+    .about-me-content figure.seen-mobile{
         display: none;
     }
     
     .chat-container .widget .widget-title{
         font-size: 5.2rem;
-    }
-    
-    .chat-container p{
-        font-size: 2.4rem;
     }
     
     .chat-container .contact-btn-link{
@@ -721,13 +846,63 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
     
 /*### CONTACT PAGE form ###*/
     
-    
     #contact-hero p{
         font-size: 2.6rem;
     }
     #wpforms-form-59{
         max-width: 80%;
         margin: 0 auto;
+    }
+    
+/*##### archive-projects page ###*/
+    
+    .individual-project{
+        width: 33%;
+        position: relative;
+        margin-bottom: 5px;
+    }
+    
+    .individual-project:last-of-type{
+        margin-bottom: 5px;
+    }
+    
+    .individual-project a:before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0, 0.5);
+        opacity: 0;
+        transition: all .4s;
+        -webkit-transition: all .4s;
+    }
+    
+    .individual-project a:hover:before,
+    .individual-project:hover a:before{
+        opacity: 1;
+    }
+    
+    .project-info{
+        width: -moz-fit-content;
+        width: fit-content;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+    
+     .individual-project:hover .project-info{
+         z-index: 1;
+         transition: all .4s;
+        -webkit-transition: all .4s;
+    }
+
+    .project-info h2{
+        margin: 0;
+        font-size: 3rem;
     }
     
 /*### SERVICES PAGE ###*/
@@ -744,4 +919,19 @@ div.wpforms-container-full .wpforms-form button[type=submit]:hover{
         font-size: 3.6rem;
     }
     
+}
+
+/*#### JS Styles ###*/
+
+/*reveal on scroll styling!*/
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active{
+    transform: translateY(0px);
+    opacity: 1;
 }

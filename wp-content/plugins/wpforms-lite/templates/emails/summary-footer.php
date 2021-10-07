@@ -27,7 +27,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 								'https://wpforms.com/docs/how-to-use-email-summaries/#faq'
 							),
 							[
-								'a' => [],
+								'a' => [
+									'href' => [],
+								],
 							]
 						);
 						?>

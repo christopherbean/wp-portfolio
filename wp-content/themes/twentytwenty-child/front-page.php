@@ -23,14 +23,20 @@ get_header();
     <div class="alternate">
         <section id="about-me">
             <div class="content-wrapper">
-                <h1 class="not-seen-mobile">Why Hello There</h1>
+                
                 <div class="about-me-content">
                     <?php while ( have_posts() ) : the_post(); ?>
-                        <figure class="my-portrait">
+                        
+                        <figure class="my-portrait seen-mobile">
                             <?php the_post_thumbnail(); ?>
                         </figure>
-                        <h1 class="seen-mobile">Why Hello There</h1>
-                        <div class="about-me-text">
+                    
+                        <figure class="my-portrait reveal not-seen-mobile">
+                            <?php the_post_thumbnail(); ?>
+                        </figure>
+                        <h1 class="seen-mobile reveal">Why, Hello There</h1>
+                        <div class="about-me-text reveal">
+                            <h1 class="not-seen-mobile">Why, Hello There</h1>
                             <?php the_content(); ?>
                         </div>
                     <?php endwhile; //end of the loop ?>
@@ -54,7 +60,7 @@ get_header();
                             </a>
                         </figure>
                         
-                        <h3><a href="#"><?php the_title(); ?></a></h3>
+                        <h3><a href="<?php echo get_post_type_archive_link('projects'); ?>"><?php the_title(); ?></a></h3>
                     </li>
                     <?php endwhile; ?>
                     <?php wp_reset_query(); ?>

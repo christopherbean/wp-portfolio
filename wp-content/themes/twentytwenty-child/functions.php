@@ -62,3 +62,13 @@ function create_custom_post_types() {
 }
 
 add_action( 'init', 'create_custom_post_types' );
+
+function load_custom_scripts_child(){
+    
+    wp_enqueue_script( 'reveal-on-scroll', get_stylesheet_directory_uri() . '/my-js/reveal.js', array('jquery'), '1.0.0', false );
+    
+}
+
+add_action('wp_enqueue_scripts', 'load_custom_scripts_child');
+
+?>

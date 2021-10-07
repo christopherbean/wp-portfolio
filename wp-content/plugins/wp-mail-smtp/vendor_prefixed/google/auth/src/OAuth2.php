@@ -19,8 +19,9 @@ namespace WPMailSMTP\Vendor\Google\Auth;
 
 use WPMailSMTP\Vendor\Google\Auth\HttpHandler\HttpClientCache;
 use WPMailSMTP\Vendor\Google\Auth\HttpHandler\HttpHandlerFactory;
-use WPMailSMTP\Vendor\GuzzleHttp\Psr7;
+use WPMailSMTP\Vendor\GuzzleHttp\Psr7\Query;
 use WPMailSMTP\Vendor\GuzzleHttp\Psr7\Request;
+use WPMailSMTP\Vendor\GuzzleHttp\Psr7\Utils;
 use InvalidArgumentException;
 use WPMailSMTP\Vendor\Psr\Http\Message\RequestInterface;
 use WPMailSMTP\Vendor\Psr\Http\Message\ResponseInterface;
@@ -360,14 +361,20 @@ class OAuth2 implements \WPMailSMTP\Vendor\Google\Auth\FetchAuthTokenInterface
         }
         $now = \time();
         $opts = \array_merge(['skew' => self::DEFAULT_SKEW_SECONDS], $config);
-        $assertion = ['iss' => $this->getIssuer(), 'aud' => $this->getAudience(), 'exp' => $now + $this->getExpiry(), 'iat' => $now - $opts['skew']];
+        $assertion = ['iss' => $this->getIssuer(), 'exp' => $now + $this->getExpiry(), 'iat' => $now - $opts['skew']];
         foreach ($assertion as $k => $v) {
             if (\is_null($v)) {
                 throw new \DomainException($k . ' should not be null');
             }
         }
+        if (!\is_null($this->getAudience())) {
+            $assertion['aud'] = $this->getAudience();
+        }
         if (!\is_null($this->getScope())) {
             $assertion['scope'] = $this->getScope();
+        }
+        if (empty($assertion['scope']) && empty($assertion['aud'])) {
+            throw new \DomainException('one of scope or aud should not be null');
         }
         if (!\is_null($this->getSub())) {
             $assertion['sub'] = $this->getSub();
@@ -419,7 +426,7 @@ class OAuth2 implements \WPMailSMTP\Vendor\Google\Auth\FetchAuthTokenInterface
                 $params = \array_merge($params, $this->getExtensionParams());
         }
         $headers = ['Cache-Control' => 'no-store', 'Content-Type' => 'application/x-www-form-urlencoded'];
-        return new \WPMailSMTP\Vendor\GuzzleHttp\Psr7\Request('POST', $uri, $headers, \WPMailSMTP\Vendor\GuzzleHttp\Psr7\build_query($params));
+        return new \WPMailSMTP\Vendor\GuzzleHttp\Psr7\Request('POST', $uri, $headers, \WPMailSMTP\Vendor\GuzzleHttp\Psr7\Query::build($params));
     }
     /**
      * Fetches the auth tokens based on the current state.
@@ -554,8 +561,8 @@ class OAuth2 implements \WPMailSMTP\Vendor\Google\Auth\FetchAuthTokenInterface
         }
         // Construct the uri object; return it if it is valid.
         $result = clone $this->authorizationUri;
-        $existingParams = \WPMailSMTP\Vendor\GuzzleHttp\Psr7\parse_query($result->getQuery());
-        $result = $result->withQuery(\WPMailSMTP\Vendor\GuzzleHttp\Psr7\build_query(\array_merge($existingParams, $params)));
+        $existingParams = \WPMailSMTP\Vendor\GuzzleHttp\Psr7\Query::parse($result->getQuery());
+        $result = $result->withQuery(\WPMailSMTP\Vendor\GuzzleHttp\Psr7\Query::build(\array_merge($existingParams, $params)));
         if ($result->getScheme() != 'https') {
             throw new \InvalidArgumentException('Authorization endpoint must be protected by TLS');
         }
@@ -1096,14 +1103,28 @@ class OAuth2 implements \WPMailSMTP\Vendor\Google\Auth\FetchAuthTokenInterface
     /**
      * The expiration of the last received token.
      *
-     * @return array
+     * @return array|null
      */
     public function getLastReceivedToken()
     {
         if ($token = $this->getAccessToken()) {
-            return ['access_token' => $token, 'expires_at' => $this->getExpiresAt()];
+            // the bare necessity of an auth token
+            $authToken = ['access_token' => $token, 'expires_at' => $this->getExpiresAt()];
+        } elseif ($idToken = $this->getIdToken()) {
+            $authToken = ['id_token' => $idToken, 'expires_at' => $this->getExpiresAt()];
+        } else {
+            return null;
         }
-        return null;
+        if ($expiresIn = $this->getExpiresIn()) {
+            $authToken['expires_in'] = $expiresIn;
+        }
+        if ($issuedAt = $this->getIssuedAt()) {
+            $authToken['issued_at'] = $issuedAt;
+        }
+        if ($refreshToken = $this->getRefreshToken()) {
+            $authToken['refresh_token'] = $refreshToken;
+        }
+        return $authToken;
     }
     /**
      * Get the client ID.
@@ -1129,7 +1150,7 @@ class OAuth2 implements \WPMailSMTP\Vendor\Google\Auth\FetchAuthTokenInterface
         if (\is_null($uri)) {
             return;
         }
-        return \WPMailSMTP\Vendor\GuzzleHttp\Psr7\uri_for($uri);
+        return \WPMailSMTP\Vendor\GuzzleHttp\Psr7\Utils::uriFor($uri);
     }
     /**
      * @param string $idToken

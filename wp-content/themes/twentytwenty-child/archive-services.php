@@ -16,7 +16,7 @@ get_header();
     
     <section id="services-hero" class="hero-area">
         <div class="content-wrapper">
-            <h2>So you're curious about what I can do for you? I thought you'd never ask! Here's a few services that I currently offer. Have a question about a service or how I can help you on your project?</h2>
+            <h2>So you're curious about what I can do for you? I thought you'd never ask! Here are a few services that I currently offer. Have a question about a service or how I can help you on your project?</h2>
             
         <?php query_posts('pagename=Contact'); ?>
             <?php while (have_posts()): the_post(); ?>
